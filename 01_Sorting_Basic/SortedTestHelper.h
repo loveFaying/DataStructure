@@ -5,10 +5,18 @@
 #include <ctime>
 #include <cassert>
 
-using namespace std;
-
 namespace SortedTestHelper{
-    
-}
+
+    // 打印数组内容
+    template<typename T>
+    void printArray(T arr[], int length){
+
+        for(int i = 0 ; i < length ; i ++){
+            std::cout << arr[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+};
 
 #endif

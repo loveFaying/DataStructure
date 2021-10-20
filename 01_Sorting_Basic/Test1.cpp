@@ -10,7 +10,13 @@ int main(){
     SortedAlgorithm::selectionSort(arr, length);
     SortedTestHelper::printArray(arr, length);
 
-    string c[] = {"D","C","B","A"};
+    int N = 10000;
+    int* a = SortedTestHelper::generateRandomArray(N, 0, 500);
+    SortedAlgorithm::selectionSort(a, N);
+    SortedTestHelper::printArray(a, N);
+    delete[] a;
+
+    string c[4] = {"D","C","B","A"};
     length = sizeof(c)/sizeof(string);
     SortedAlgorithm::selectionSort(c, 4);
     SortedTestHelper::printArray(c, 4);
@@ -18,6 +24,8 @@ int main(){
     float b[4] = {4.4,3.3,2.2,1.1};     
     SortedAlgorithm::selectionSort(b,4);     
     SortedTestHelper::printArray(b,4);
+
+
 
     return 0;
 }

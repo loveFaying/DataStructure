@@ -1,5 +1,6 @@
 ### 文件介绍
-- Test1.cpp  测试SortedAlgorithm::selectionSort 与  SortedTestHelper::printArray
+- Test1.cpp  测试 SortedAlgorithm::selectionSort  SortedTestHelper::printArray  SortedTestHelper::generateRandomArray
+- Test2.cpp  测试 SortedTestHelper::isSorted SortedTestHelper::testSort
  
 
 ### 下面代码存在的问题

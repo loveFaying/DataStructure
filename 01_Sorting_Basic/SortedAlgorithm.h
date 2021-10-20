@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <ctime>
 #include <algorithm>
 
 namespace SortedAlgorithm{

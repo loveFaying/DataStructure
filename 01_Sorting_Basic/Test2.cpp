@@ -18,7 +18,7 @@ int main(){
 
     length = 100000;
     int* arr = SortedTestHelper::generateRandomArray(length, 0, length);
-    SortedTestHelper::testSort("selectionSort", SortedAlgorithm::selectionSort, arr, length);
+    SortedTestHelper::testSort("Selection Sort", SortedAlgorithm::selectionSort, arr, length);
     delete[] arr;
 
     return 0;

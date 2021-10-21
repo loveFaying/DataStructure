@@ -39,7 +39,7 @@ namespace SortedTestHelper{
         return true;
     }
 
-    // 测试排序运行时间
+    // 测试sort排序算法排序arr数组所得到结果的正确性和算法运行时间
     template<typename T>
     void testSort(const std::string& sortName, void (*sort)(T[], int), T arr[], int length){
 
@@ -51,6 +51,16 @@ namespace SortedTestHelper{
         std::cout << sortName << " : " << (double)(endTime - startTime) / CLOCKS_PER_SEC << "s" << std::endl;
 
         return ;
+    }
+
+    // 拷贝数组a中的所有元素到一个新的数组, 并返回新的数组
+    template<typename T>
+    T* copyArray(T a[], int length){
+
+        T* arr = new T[length];
+        for(int i = 0 ; i < length ; i ++)
+            arr[i] = a[i];
+        return arr;
     }
 
 };

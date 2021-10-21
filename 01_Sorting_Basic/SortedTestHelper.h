@@ -63,6 +63,23 @@ namespace SortedTestHelper{
         return arr;
     }
 
+    // 生成一个近乎有序的 整型 数组(先生成[0...n-1]的完全有序的数组，然后再进行swapTimes对交换)
+    int* generateNearlyOrderedArray(int n, int swapTimes){
+
+        int *arr = new int[n];
+        for(int i = 0 ; i < n ; i ++)
+            arr[i] = i;
+        
+        srand(time(NULL));
+        for(int i = 0 ; i < swapTimes ; i ++){
+            int posx = rand()%n;
+            int posy = rand()%n;
+            std::swap(arr[posx], arr[posy]);
+        }
+
+        return arr;
+    }
+
 };
 
 #endif

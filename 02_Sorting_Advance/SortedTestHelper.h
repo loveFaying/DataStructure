@@ -80,6 +80,32 @@ namespace SortedTestHelper{
         return arr;
     }
 
+    // 生成一个完全有序的数组
+    int* generateOrderedArray(int n){
+
+        return generateNearlyOrderedArray(n, 0);
+    }
+
+    // 生成一个完全逆序的数组
+    int* generateInversedArray(int n){
+
+        int* arr = generateOrderedArray(n);
+        for(int i = n/2 - 1 ; i >= 0 ; i --)
+            std::swap(arr[i], arr[n-i-1]);
+        return arr;
+    }
+
+    // 将arr 随机化
+    template<typename T>
+    void shuffleArray(T arr[], int n){
+
+        srand(time(NULL));
+        for(int i = 0 ; i < n ; i ++){
+            int j = rand()% (n-i)+i;
+            std::swap(arr[i], arr[j]);
+        }
+    }
+
 };
 
 #endif

@@ -97,3 +97,48 @@ Quick Sort 2 : 0.323s
 Quick Sort 3 : 0.004s
 Quick Sort 3 Ways : 0.002s
 ```
+#### Test5.cpp
+- 优化mergeSort2     SortedAlgorithm::mergeSort3
+- 将辅助空间aux以参数的额形式传递给完成归并排序的各个子函数
+- 由于aux的大小和arr一样，所以不需要计算aux索引的偏移量，直接使用aux就行，节省了计算量
+```C++
+//before
+for( int i = l ; i <= r; i ++ )
+    aux[i-l] = arr[i];
+//after
+for( int i = l ; i <= r; i ++ )
+    aux[i] = arr[i];
+```
+```
+Test for random array, size = 10000000, random range [0, 10000000]
+Merge Sort 1 : 4.054s
+Merge Sort 2 : 2.971s
+Merge Sort 3 : 2.488s
+
+Test for nearly ordered array, size = 5000000, swap time = 100
+Merge Sort 1 : 1.279s
+Merge Sort 2 : 0.045s
+Merge Sort 3 : 0.035s
+
+Test for random array, size = 5000000, random range [0,10]
+Merge Sort 1 : 1.611s
+Merge Sort 2 : 1.09s
+Merge Sort 3 : 0.895s
+```
+
+#### Test6.cpp
+- 计算逆序数对的结果以long long返回
+- 对于一个大小为N的数组, 其最大的逆序数对个数为 N*(N-1)/2, 非常容易产生整型溢出
+```
+Test Inversion Count for Random Array, n = 1000000 :
+250239643835
+
+Test Inversion Count for Ordered Array, n = 1000000 :
+0
+
+Test Inversion Count for Inversed Array, n = 1000000 :
+499999500000
+```
+#### Test7.cpp
+- 求数组中第N小的元素
+- 利用partition的过程

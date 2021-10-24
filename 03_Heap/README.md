@@ -107,3 +107,42 @@ Heap Sort 1 : 0.307 s
 Heap Sort 2 : 0.303 s
 Heap Sort 3 : 0.178 s
 ```
+#### Test6.cpp
+- 最大索引堆  (比较的时候用data 交换的时候用索引 通过交换索引来构建堆)
+- 若堆中都是复杂的数据结构，则swap操作就会很耗时，此时不如交换索引堆
+- 如果索引与内容之间存在key-value的关系，则传统的heap sort存在局限性
+```
+Heap Sort Using Index-Max-Heap : 1.09s
+```
+#### Test7.cpp
+- 在最大索引堆的基础上，加入reverse，可以反向查找
+```
+0       1    2    3    4    5    6    7    8    9   10
+index  10    9    7    8    5    6    3    1    4    2
+data   15   17   19   13   22   16   28   30   41   62
+rev     8   10    7    9    5    6    3    4    2    1   
+```
+- int *indexes;   // 最大索引堆中的索引, indexes[x] = i 表示索引i在x的位置
+- int *reverse;   // 最大索引堆中的反向索引, reverse[i] = x 表示索引i在x的位置
+- reverse[i]: 索引i在indexes(堆)中的位置      data 62(索引 10) 在堆中1的位置
+- indexes[i] = j       reverse[j]=i
+- indexes[reverse[i]] = i
+- reverse[indexes[i]] = i
+```
+Heap Sort Using Index-Max-Heap : 1.926s
+```
+#### HeapSort.h  IndexMaxHeap.h   MaxHeap.h  maxHeapO.h
+- HeapSort.h  优化之后的原地堆排序
+- IndexMaxHeap.h  最大索引堆
+- MaxHeap.h  最大堆
+- MaxHeapO.h  将 ShiftUp 和 ShiftDown 函数使用类似插入排序算法的方式进行优化的最大堆
+#### MinHeap.h  Test8.cpp
+- MinHeap.h 最小堆
+```
+Heap Sort Using Min-Heap : 0.502s
+```
+#### IndexMinHeap.h  最小索引堆   Test9.cpp
+- IndexMinHeap.h  最小索引堆
+```
+Heap Sort Using Index-Min-Heap : 1.476s
+```
